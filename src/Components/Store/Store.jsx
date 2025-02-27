@@ -8,10 +8,10 @@ const Store = () => {
   return (
     <div className='store'>
         <div className="gallery">
-            <img src={gallery_1} alt="" />
-            <img src={gallery_2} alt="" />
-            <img src={gallery_3} alt="" />
-            <img src={gallery_4} alt="" />
+            <img src={bike} alt="" />
+            <img src={bike} alt="" />
+            <img src={bike} alt="" />
+            <img src={bike} alt="" />
         </div>
         <button className='btn dark-btn'>See More <img src={white_arrow} alt="" /></button>
     </div>
