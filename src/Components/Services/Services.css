@@ -45,3 +45,15 @@
     opacity: 1;
     padding-top: 0;
 }
+
+/* Responsive */
+
+@media (max-width: 800px){
+    .services{
+        flex-direction: column; 
+    }
+    .service{
+        flex-basis: 100%;
+        margin: 20px;
+    }
+}
