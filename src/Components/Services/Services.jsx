@@ -9,7 +9,7 @@ const Services = () => {
   return (
     <div className='services'>
         <div className="service">
-            <img src={bike} alt="" loading='lazy'/>
+            <img src={bike} alt="" />
             <div className="caption">
                 <img src={service_icon_1} alt="" />
                 <p>Wheel Care</p>
@@ -18,12 +18,12 @@ const Services = () => {
         <div className="service">
             <img src={bike} alt="" />
             <div className="caption">
-                <img src={service_icon_2} alt="" loading='lazy'/>
+                <img src={service_icon_2} alt="" />
                 <p>Body Paint Care</p>
             </div>
         </div>
         <div className="service">
-            <img src={bike} alt="" loading='lazy'/>
+            <img src={bike} alt="" />
             <div className="caption">
                 <img src={service_icon_3} alt="" />
                 <p>Deep Cleaning</p>
