@@ -28,6 +28,7 @@ const Contact = () => {
         const data = await response.json();
 
         if (data.success) {
+        setTimeout(5000);
         setResult("Form Submitted Successfully");
         toast.success("Success");
         event.target.reset();
