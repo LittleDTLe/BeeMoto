@@ -24,11 +24,11 @@ const Navbar = () => {
     <nav className={`container ${sticky? 'dark_nav' : ''}`}>
         <img src={logo} alt="" className='logo' />
         <ul className={mobileMenu?'':'hide-menu'}>
-            <li><Link to='hero' smooth={true} offset={0} duration={500}>Home</Link></li>
-            <li><Link to='services' smooth={true} offset={-300} duration={500}>Services</Link></li>
-            <li><Link to='about' smooth={true} offset={-200} duration={500}>About</Link></li>
-            <li><Link to='gallery' smooth={true} offset={-250} duration={500}>Gallery</Link></li>
-            <li><Link to='contact' smooth={true} offset={0} duration={500} className='btn'>Contact Us</Link></li>
+            <li><Link href='#hero' to='hero' smooth={true} offset={0} duration={500}>Home</Link></li>
+            <li><Link href='#services' to='services' smooth={true} offset={-300} duration={500}>Services</Link></li>
+            <li><Link href='#about' to='about' smooth={true} offset={-200} duration={500}>About</Link></li>
+            <li><Link href='#gallery' to='gallery' smooth={true} offset={-250} duration={500}>Gallery</Link></li>
+            <li><Link href='#contact' to='contact' smooth={true} offset={0} duration={500} className='btn'>Contact Us</Link></li>
         </ul>
         <img src={menu_icon} alt="" className='menu-icon' onClick={toggleMenu}/>
     </nav>
