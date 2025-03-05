@@ -8,7 +8,6 @@ import Store from './Components/Store/Store'
 import Contact from './Components/Contact/Contact'
 import Footer from './Components/Footer/Footer'
 import Video from './Components/VideoPlayer/VideoPlayer'
-
 const App = () => {
 
   const [playState, setPlayState] = useState(false);
