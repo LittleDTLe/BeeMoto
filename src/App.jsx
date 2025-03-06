@@ -1,32 +1,30 @@
-import React, { useState } from 'react'
+import React from 'react'
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Navbar from './Components/Navbar/Navbar'
-import Hero from './Components/Hero/Hero'
-import Services from './Components/Services/Services'
-import Title from './Components/Title/Title'
-import About from './Components/About/About'
-import Store from './Components/Store/Store'
-import Contact from './Components/Contact/Contact'
+import Pricing from './pages/Pricing'
+import Gallery from './pages/Gallery'
 import Footer from './Components/Footer/Footer'
-import Video from './Components/VideoPlayer/VideoPlayer'
-const App = () => {
+// import Content from './Components/Content.jsx'
+import Home from './pages/Home'
+import Terms from './pages/Terms'
+import Policies from './pages/Policies'
+import './index.css'
 
-  const [playState, setPlayState] = useState(false);
+const App = () => {
 
   return (
     <div>
-      <Navbar/>
-      <Hero/>
-      <div className="container">
-        <Title subTitle='our services' title='What We Offer'/>
-        <Services/>
-        <About setPlayState={setPlayState}/>
-        <Title subTitle='Gallery' title='Our Space'/>
-        <Store/>
-        <Title subTitle='Contact Us' title='Only a Message Away'/>
-        <Contact/>
-        <Footer/>
-      </div>
-      <Video playState={playState} setPlayState={setPlayState}/>
+      <Router>
+        <Navbar/>
+        <Routes>
+          <Route path='*' element={<Home/>}/>
+          <Route path='/pricing' element={<Pricing/>}/>
+          <Route path='/gallery' element={<Gallery/>}/>
+          <Route path='/terms' element={<Terms/>}/>
+          <Route path='/policies' element={<Policies/>}/>
+        </Routes>
+        <div className='container'><Footer/></div>
+      </Router>
     </div>
   )
 }

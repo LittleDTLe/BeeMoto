@@ -1,13 +1,14 @@
 import React from 'react'
 import './Footer.css'
+import {Link} from 'react-router-dom'
 
 const Footer = () => {
   return (
     <div className='footer'>
-        <p>&copy; BeeMotoDetail. All rights reserved.</p>
+        <p>&copy;{new Date().getFullYear()} BeeMotoDetail.</p>
         <ul>
-            <li>Terms of Services</li>
-            <li>Privacy Policy</li>
+            <Link to="/terms"><li>Terms of Services</li></Link>
+            <Link to="/policies"><li>Privacy Policy</li></Link>
         </ul>
     </div>
   )

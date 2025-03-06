@@ -7,7 +7,7 @@ import service_icon_3 from '../../assets/program-icon-3.png'
 
 const Services = () => {
   return (
-    <div className='services'>
+    <div className='services' id='services' name="services">
         <div className="service">
             <img src={bike} alt="" />
             <div className="caption">
