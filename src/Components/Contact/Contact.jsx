@@ -53,7 +53,8 @@ const Contact = () => {
         <div className="contact-col">
             <form onSubmit={onSubmit}>
                 <input type="text" name='name' placeholder='Type Your Name' required/>
-                <input type="tel" name="phone" id="" placeholder='Enter Your Phone Number' required/>
+                <input type="email" name="email" id="" placeholder='Enter you Email Address' pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required/>
+                <input type="tel" name="phone" id="" placeholder='Enter Your Phone Number' minLength={10} maxLength={10} required/>
                 <textarea name="message" rows="6" placeholder='Enter Your Message' required></textarea>
                 <button type='submit' className='btn dark-btn' >Submit <img src={white_arrow} alt="" /></button>
             </form>
