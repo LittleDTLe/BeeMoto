@@ -40,7 +40,7 @@ const Contact = () => {
     };
 
   return (
-    <div className='contact'>
+    <div className='contact' id='contact' name='contact'>
         <div className="contact-col">
             <h3>Send Us a Message</h3>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad quae rem est ipsum voluptates ea pariatur minima, placeat harum, maiores beatae doloremque unde at corporis iure ratione earum ex? Impedit.</p>

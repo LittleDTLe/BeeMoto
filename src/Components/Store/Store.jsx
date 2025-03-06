@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom'
 
 const Store = () => {
   return (
-    <div className='store'>
+    <div className='store' id='store' name='store'>
         <div className="gallery">
             <img src={bike} alt="" />
             <img src={bike} alt="" />
