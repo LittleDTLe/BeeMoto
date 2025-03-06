@@ -10,24 +10,21 @@ import Video from '../Components/VideoPlayer/VideoPlayer'
 
 const Home = () => {
 
-  const {hash} = useLocation();
+  const { hash } = useLocation();
 
-  useEffect(() => {
-    
-    //Handle initial load with hash in URL
-    if(hash){
-      const id = hash.substring(1);
+useEffect(() => {
+  if (hash) {
+    const id = hash.substring(1);
+    setTimeout(() => {
       const element = document.getElementById(id);
-
-      if(element){
-        //Set timeout to make sure DOM is fully loaded
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start'});
-        }, 100);
+      if (element) {
+        const yOffset = -250; // Adjust based on navbar height
+        const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
       }
-    }
-
-  }, []) //  Empty dependency array means this only runs once on initial mount
+    }, 200);
+  }
+}, [hash]); // Run effect whenever hash changes
 
   const [playState, setPlayState] = useState(false);
 

@@ -13,24 +13,21 @@ const Navbar = () => {
   //Navigation with Scroll
   const handleNavClick = (e, sectionId) => {
     e.preventDefault();
-
-    const targetPath = '/#${sectionId}';
-
-    //If on Homepage
-    if(location.pathname === '/'){
-      
-      const element = document.getElementById(sectionId);
-
-      if(element){
-        element.scrollIntoView({behavior: 'smooth', block: 'start'});
-      }
-    }else{
+    const targetPath = `/#${sectionId}`;
+  
+    if (location.pathname === "/") {
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const yOffset = -250; // Adjust this value based on your navbar height
+          const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+          window.scrollTo({ top: y, behavior: "smooth" });
+        }
+      }, 100);
+    } else {
       nav(targetPath);
-
-    //Update URL without pageReload
-    window.history.pushState(null, '', targetPath);
-    } 
-  }
+    }
+  };
 
   const [sticky, setSticky] = useState(false);
 
@@ -54,7 +51,7 @@ const Navbar = () => {
             <li><a href="/#services" onClick={(e) => handleNavClick(e, 'services')}>Services</a></li>
             <li><a href="/#about" onClick={(e) => handleNavClick(e, 'about')}>About</a></li>
             <li><a href="/#store" onClick={(e) => handleNavClick(e, 'store')}>Gallery</a></li>
-            <li><a href="/#contact" onClick={(e) => handleNavClick(e, 'contact')}>Contact Us</a></li>
+            <li className="btn"><a href="/#contact" onClick={(e) => handleNavClick(e, 'contact')}>Contact Us</a></li>
         </ul>
         <img src={menu_icon} alt="" className='menu-icon' onClick={toggleMenu}/>
     </nav>
