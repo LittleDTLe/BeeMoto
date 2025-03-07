@@ -1,10 +1,11 @@
 import React from 'react'
-import './Gallery.css'
+import Image from '../Components/Images/Image'
+import images from '../Components/Images/images'
 
 const Gallery = () => {
   return (
-    <div className='test'>
-      Gallery
+    <div>
+      <Image images={images}/>
     </div>
   )
 }

@@ -28,15 +28,21 @@ const Navbar = () => {
       nav(targetPath);
     }
   };
-
+  //Set '' when not in homepage
+  const [navColor, setNavColor] = useState(false);
   const [sticky, setSticky] = useState(false);
 
   useEffect(()=>{
-    window.addEventListener('scroll', ()=> {
-      window.scrollY > 50 ? setSticky(true) : setSticky(false);
-    })
+    if(location.pathname != "/"){
+      setNavColor(true);
+    }else{
+      window.addEventListener('scroll', ()=> {
+      window.scrollY > 500 ? setNavColor(true) : setNavColor(false);
+      })
+    }
   }, []);
 
+  //Mobile Menu
   const [mobileMenu, setMobileMenu] = useState(false);
 
   const toggleMenu = ()=>{
@@ -44,7 +50,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className={`container ${sticky? 'dark_nav' : ''}`}>
+    <nav className={`container ${navColor? 'dark_nav' : ''}`}>
         <img src={logo} alt="" className='logo' />
         <ul className={mobileMenu?'':'hide-menu'}>
             <li><a href="/#hero" onClick={(e) => handleNavClick(e, 'hero')}>Home</a></li>
