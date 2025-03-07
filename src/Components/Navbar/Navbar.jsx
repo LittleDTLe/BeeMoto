@@ -30,17 +30,16 @@ const Navbar = () => {
   };
   //Set '' when not in homepage
   const [navColor, setNavColor] = useState(false);
-  const [sticky, setSticky] = useState(false);
 
   useEffect(()=>{
-    if(location.pathname != "/"){
-      setNavColor(true);
-    }else{
+    if(location.pathname === "/"){
       window.addEventListener('scroll', ()=> {
-      window.scrollY > 500 ? setNavColor(true) : setNavColor(false);
+        window.scrollY > 500 ? setNavColor(true) : setNavColor(false);
       })
+    }else{
+      setNavColor(true);
     }
-  }, []);
+  });
 
   //Mobile Menu
   const [mobileMenu, setMobileMenu] = useState(false);

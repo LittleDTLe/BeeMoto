@@ -83,6 +83,23 @@
     font-size: 14px;
     line-height: 1.4;
   }
+
+  /* Title container for individual image titles */
+.image-title-container {
+    padding: 10px;
+    border-radius: 0 0 8px 8px;
+  }
+  
+  .image-title {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
   
   .image-item:hover .gallery-image {
     transition: 0.3s ease-in-out;

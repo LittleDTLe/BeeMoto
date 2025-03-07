@@ -50,6 +50,10 @@ return (
                       <p className="image-description">{image.description}</p>
                     </div>
                   </div>
+                  {/* ToDo: Add imageTitle */}
+                  <div className="image-title-container">
+                    <h3 className="image-title">{image.imageTitle || `Image ${index + 1}`}</h3>
+                  </div>
                 </div>
               ))}
             </div>
