@@ -1,0 +1,122 @@
+/* Wrapper to prevent overflow */
+.services-wrapper {
+    position: relative;
+    width: 100vw;
+    height: 92vh;
+    overflow: hidden;
+  }
+  
+  /* Horizontal Scroll Container */
+  .services-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    width: 100vw;
+    height: 100vh;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .service-section {
+    flex: 0 0 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: start;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0.5;
+  }
+  
+  .service-section.active {
+    opacity: 1;
+  }
+  
+  /* Side-by-Side Layout */
+  .service-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    max-width: 1200px;
+  }
+  
+  /* Image Styling */
+  .service-image {
+    width: 50%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;
+    margin-right: 20px;
+  }
+  
+  /* Text Styling */
+  .service-info {
+    width: 50%;
+    text-align: left;
+  }
+  
+  .service-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .service-info p {
+    font-size: 1.5rem;
+    max-width: 600px;
+  }
+  
+  /* Indicators */
+  .indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+  }
+  
+  .dot {
+    width: 12px;
+    height: 12px;
+    background-color: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .active-dot {
+    background-color: #333;
+  }
+  
+  /* Hide scrollbar */
+  .services-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .service-content {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .service-image {
+      width: 80%;
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  
+    .service-info {
+      width: 100%;
+    }
+  
+    .service-info h2 {
+      font-size: 2rem;
+    }
+  
+    .service-info p {
+      font-size: 1.2rem;
+    }
+  }
+  
