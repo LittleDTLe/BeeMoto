@@ -2,10 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import "./Pricing.css";
 
 const services = [
-  { title: "Detailing", description: "Premium motorcycle detailing services.", image: "detail.jpg" },
-  { title: "Ceramic Coating", description: "Advanced protection for your bike.", image: "ceramic.jpg" },
-  { title: "Detailing", description: "Premium motorcycle detailing services.", image: "detail.jpg" },
-  { title: "Ceramic Coating", description: "Advanced protection for your bike.", image: "ceramic.jpg" },
+  { title: "Detailing", description: "Premium motorcycle detailing services.", image: "https://images.unsplash.com/photo-1609630875171-b1321377ee65?q=80&w=1960&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { title: "Ceramic Coating", description: "Advanced protection for your bike.", image: "https://images.unsplash.com/photo-1614165936126-2ed18e471b3b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
   { title: "Polishing", description: "Enhance the shine of your motorcycle.", image: "polish.jpg" }
 ];
 
@@ -21,24 +19,22 @@ const Pricing = () => {
       if (!containerRef.current) return;
       const scrollLeft = containerRef.current.scrollLeft;
       const sectionWidth = containerRef.current.clientWidth;
-
       const index = Math.round(scrollLeft / sectionWidth);
       setActiveIndex(index);
-      console.log("I am scrolling...")
     };
 
     const container = containerRef.current;
     container.addEventListener("scroll", handleScroll);
-
     return () => container.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToService = (index) => {
-    sectionsRef.current[index].scrollIntoView({ behavior: "smooth" });
-    setActiveIndex(index);
+    if (index >= 0 && index < services.length) {
+      sectionsRef.current[index].scrollIntoView({ behavior: "smooth" });
+      setActiveIndex(index);
+    }
   };
 
-  // Handle Swipe for Mobile
   const handleTouchStart = (e) => setTouchStartX(e.touches[0].clientX);
   const handleTouchEnd = (e) => {
     setTouchEndX(e.changedTouches[0].clientX);
@@ -54,13 +50,15 @@ const Pricing = () => {
     } else if (swipeDistance < -50 && activeIndex > 0) {
       scrollToService(activeIndex - 1);
     }
-
     setTouchStartX(null);
     setTouchEndX(null);
   };
 
   return (
     <div className="services-wrapper">
+      <button className="nav-arrow left" onClick={() => scrollToService(activeIndex - 1)} disabled={activeIndex === 0}>
+        &#9665;
+      </button>
       <div
         className="services-container"
         ref={containerRef}
@@ -73,7 +71,6 @@ const Pricing = () => {
             className={`service-section ${index === activeIndex ? "active" : ""}`}
             ref={(el) => (sectionsRef.current[index] = el)}
           >
-            {/* Image & Text Side by Side */}
             <div className="service-content">
               <img src={service.image} alt={service.title} className="service-image" />
               <div className="service-info">
@@ -84,8 +81,9 @@ const Pricing = () => {
           </div>
         ))}
       </div>
-
-      {/* Indicators */}
+      <button className="nav-arrow right" onClick={() => scrollToService(activeIndex + 1)} disabled={activeIndex === services.length - 1}>
+        &#9655;
+      </button>
       <div className="indicators">
         {services.map((_, index) => (
           <span

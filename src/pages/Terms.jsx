@@ -2,7 +2,7 @@ import React from "react";
 
 const TermsAndConditions = () => {
   return (
-    <div style={{ maxWidth: "800px", margin: "0 auto", padding: "20px", fontFamily: "Arial, sans-serif" }}>
+    <div style={{ maxWidth: "800px", margin: "0 auto", padding: "20px", fontFamily: "Arial, sans-serif", marginTop: "135px", marginBottom: "135px"}}>
       <div style={{ border: "1px solid #ddd", borderRadius: "5px", padding: "20px", backgroundColor: "#f9f9f9" }}>
         <h2 style={{ fontSize: "24px", fontWeight: "bold", marginBottom: "15px" }}>Terms and Conditions</h2>
         <p><strong>Last Updated:</strong> [Insert Date]</p>

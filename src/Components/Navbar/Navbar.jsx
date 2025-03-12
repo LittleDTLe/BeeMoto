@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import './Navbar.css'
 import logo from '../../assets/logo.png'
 import menu_icon from '../../assets/menu-icon.png'
@@ -43,10 +43,18 @@ const Navbar = () => {
 
   //Mobile Menu
   const [mobileMenu, setMobileMenu] = useState(false);
+  
+  const menuRef = useRef();
 
-  const toggleMenu = ()=>{
-    mobileMenu ? setMobileMenu(false) : setMobileMenu(true);
-  }
+  useEffect(() => {
+    const closeMenu = e => {
+      if (!menuRef.current.contains(e.target)) {
+        setMobileMenu(false);
+      }
+    }
+    document.body.addEventListener('mousedown', closeMenu);
+    return() => document.body.removeEventListener('mousedown', closeMenu);
+  }, [])
 
   return (
     <nav className={`container ${navColor? 'dark_nav' : ''}`}>
@@ -58,7 +66,7 @@ const Navbar = () => {
             <li><a href="/#store" onClick={(e) => handleNavClick(e, 'store')}>Gallery</a></li>
             <li className="btn"><a href="/#contact" onClick={(e) => handleNavClick(e, 'contact')}>Contact Us</a></li>
         </ul>
-        <img src={menu_icon} alt="" className='menu-icon' onClick={toggleMenu}/>
+        <img src={menu_icon} alt="" className='menu-icon' onClick={() => setMobileMenu(!mobileMenu)}  ref={menuRef} />
     </nav>
   )
 }

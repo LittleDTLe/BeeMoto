@@ -2,7 +2,7 @@
 .services-wrapper {
     position: relative;
     width: 100vw;
-    height: 92vh;
+    height: 90vh;
     overflow: hidden;
   }
   
@@ -93,9 +93,40 @@
   .services-container::-webkit-scrollbar {
     display: none;
   }
+
+  .nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 15px 20px;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+  }
+  
+  .nav-arrow:hover {
+    background: rgba(0, 0, 0, 0.8);
+  }
+  
+  .nav-arrow.left {
+    left: 10px;
+  }
+  
+  .nav-arrow.right {
+    right: 10px;
+  }
+  
+
   
   /* Responsive Design */
   @media (max-width: 768px) {
+    .services-container{
+    }
+
     .service-content {
       flex-direction: column;
       text-align: center;
@@ -117,6 +148,10 @@
   
     .service-info p {
       font-size: 1.2rem;
+    }
+
+    .nav-arrow{
+      display: none;
     }
   }
   
